@@ -4,21 +4,21 @@
     <meta charset="utf-8"/>
     <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
     <script>
-      const CRM_ADDRESS = "robot@firma.no"; // << BYTT TIL RIKTIG ADRESSE
+      const CRM_ADDRESS = "alfred.robot@malling.no";
+
       function forwardToCrm(event) {
         try {
-          const item = Office.context.mailbox.item; // du står i en lest e-post
-          const subject = item.subject || "";
+          const item = Office.context.mailbox.item;
+          const subject = item?.subject || "";
           Office.context.mailbox.displayNewMessageForm({
             toRecipients: [CRM_ADDRESS],
-            subject: subject
+            subject
           });
-          event.completed();
-        } catch (e) {
-          Office.context.mailbox.displayNewMessageForm({ toRecipients: [CRM_ADDRESS] });
+        } finally {
           event.completed();
         }
       }
+
       Office.onReady(() => { window.forwardToCrm = forwardToCrm; });
     </script>
   </head>
