@@ -9,9 +9,9 @@
   <ProviderName>Malling &amp; Co</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="Send to CRM"/>
-  <Description DefaultValue="Forward selected email to CRM robot."/>
-  <IconUrl DefaultValue="__HOST__/icon-32.png"/>
-  <HighResolutionIconUrl DefaultValue="__HOST__/icon-80.png"/>
+  <Description DefaultValue="Forward selected email to Alfred Robot."/>
+  <IconUrl DefaultValue="https://via.placeholder.com/32"/>
+  <HighResolutionIconUrl DefaultValue="https://via.placeholder.com/80"/>
   <SupportsPinning>false</SupportsPinning>
   <Hosts><Host Name="Mailbox"/></Hosts>
   <Requirements><Sets><Set Name="Mailbox" MinVersion="1.6"/></Sets></Requirements>
@@ -22,13 +22,15 @@
   <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides/1.1" xsi:type="VersionOverridesV1_1">
     <Hosts>
       <Host xsi:type="MailHost">
-        <Runtimes><Runtime resid="Commands.Url" lifetime="short"/></Runtimes>
+        <Runtimes>
+          <Runtime resid="Commands.Url" lifetime="short"/>
+        </Runtimes>
         <ExtensionPoint xsi:type="MessageReadCommandSurface">
           <OfficeTab id="TabDefault">
             <Group id="grp.crm" label="CRM">
               <Control xsi:type="Button" id="btn.forward.to.crm"
                        label="Send to CRM"
-                       icon="__HOST__/icon-32.png"
+                       icon="https://via.placeholder.com/32"
                        onAction="forwardToCrm">
                 <Supertip>
                   <Title resid="res.title"/>
@@ -42,13 +44,13 @@
     </Hosts>
     <Resources>
       <bt:Urls>
-        <bt:Url id="Commands.Url" DefaultValue="__HOST__/commands.html"/>
+        <bt:Url id="Commands.Url" DefaultValue="https://mallingforvaltning.github.io/outlook-crm-button/commands.html"/>
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="res.title" DefaultValue="Send to CRM"/>
       </bt:ShortStrings>
       <bt:LongStrings>
-        <bt:String id="res.desc" DefaultValue="Opens a ready-to-send message to the CRM robot."/>
+        <bt:String id="res.desc" DefaultValue="Opens a ready-to-send message to Alfred Robot."/>
       </bt:LongStrings>
     </Resources>
   </VersionOverrides>
